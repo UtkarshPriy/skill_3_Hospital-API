@@ -3,6 +3,7 @@ import express from 'express';
 import { urlencoded } from 'express';
 import jsonwebtoke from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
+import db from './src/config/mongoose.config.js'
 
 const app = express();
 app.use(urlencoded({
