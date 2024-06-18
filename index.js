@@ -1,4 +1,5 @@
 // Import necessary modules
+import "./env.js";
 import express from 'express';
 import { urlencoded } from 'express';
 // import jsonwebtoken from 'jsonwebtoken';
