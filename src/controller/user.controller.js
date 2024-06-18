@@ -17,14 +17,14 @@ export default class User {
         if(userExists){
             return res.status(406).send('Doctor already registered');
         }else{
-            await userList.createOne(newDoctor);
+            await userList.create(newDoctor);
             return res.status(201).send("Doctor Registered successully");
         }
             }catch(error){
             console.log(error);
         }
     }
-    // Regiter the Patient
+    // Regiter the Doctor
     registerPatient = async(req,res)=>{
         try{
             const {username,password,contact,dob} = req.body;
@@ -38,7 +38,7 @@ export default class User {
         if(userExists){
             return res.status(406).json({userExists});
         }else{
-            await userList.createOne(newPatient);
+            await userList.create(newPatient);
             return res.status(201).send("Patient Registered successully");
         }
             }catch(error){

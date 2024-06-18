@@ -13,7 +13,7 @@ export default class Report{
             dob:dob,
             doctorname
         }
-        await reports.createOne(newReport);
+        await reports.create(newReport);
         return res.status(201).send('Report Added');
         }catch(error){
             console.log(error);
