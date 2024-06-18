@@ -29,7 +29,7 @@ export default class User {
     // Regiter the Doctor
     registerPatient = async(req,res)=>{
         try{
-            console.log('req.body');
+    
             const {username,contact,dob} = req.body;
             let newPatient = {
                 name: username,
@@ -38,7 +38,7 @@ export default class User {
                 dob:dob || null
             };
         let userExists = await userList.findOne({phone:contact });
-        console.log(newPatient);
+        console.log(userExists);
         if(userExists){
             return res.status(406).json({userExists});
         }else{
