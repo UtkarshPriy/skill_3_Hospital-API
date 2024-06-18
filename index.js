@@ -23,25 +23,7 @@ app.post('/doctors/login',authCntrl.signIn);
 app.post('/patients/register',userCntrl.registerPatient);
 app.post('/patients/:id/create_report',reportCntrl.createReport);
 app.post('/patients/:id/all_reports',reportCntrl.allReports);
-
-
-
-
-
-
-
-
-
-
-
-
-// /doctors/register → with username and password
-// - /doctors/login → returns the JWT to be used
-// - /patients/register
-// - /patients/:id/create_report
-// - /patients/:id/all_reports
-// /reports/:status
-
+app.post('/reports/:status',reportCntrl.reportStatus);
 
 
 
