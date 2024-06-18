@@ -1,0 +1,101 @@
+
+# Hospital API
+
+Hospital API is a RESTful API built with Node.js and Express.js for managing doctors, patients, and medical reports in a hospital setting.
+
+## Features
+
+- **Doctors:**
+  - Register new doctors
+  - Login and authentication using JWT tokens
+  - Update doctor profile
+
+- **Patients:**
+  - Register new patients
+  - Login and authentication using JWT tokens
+  - Manage patient profiles and appointments
+
+- **Medical Reports:**
+  - Create new medical reports for patients
+  - View all reports for a patient
+  - Filter reports by status (e.g., pending, completed)
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB (mongoose)
+- JWT for authentication
+
+## Installation
+
+To run this project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/UtkarshPriy/skill_3_Hospital-API.git
+   ```
+   
+2. Navigate into the project directory:
+   ```bash
+   cd skill_3_Hospital-API
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Set up environment variables:
+   - Create a `.env` file in the root directory.
+   - Define the following environment variables:
+     ```
+     PORT=3000
+     MONGODB_URI=mongodb://localhost:27017/hospital-api
+     JWT_SECRET=your_jwt_secret
+     ```
+
+5. Start the server:
+   ```bash
+   npm start
+   ```
+
+6. The server will start running at `http://localhost:3000`.
+
+## API Endpoints
+
+- **Doctors:**
+  - `POST /doctors/register` - Register a new doctor
+  - `POST /doctors/login` - Login as a doctor and get JWT token
+  - `PATCH /doctors/profile` - Update doctor profile
+
+- **Patients:**
+  - `POST /patients/register` - Register a new patient
+  - `POST /patients/login` - Login as a patient and get JWT token
+  - `PATCH /patients/profile` - Update patient profile
+
+- **Medical Reports:**
+  - `POST /patients/:id/create_report` - Create a new medical report for a patient
+  - `GET /patients/:id/all_reports` - Get all reports for a patient
+  - `POST /reports/:status` - Get reports filtered by status (e.g., pending, completed)
+
+## Contributing
+
+Contributions are welcome! If you have any improvements or suggestions, please create a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries or feedback, please contact Utkarsh Priy at utkarsh@example.com.
+
+---
+
+### Notes:
+
+- Replace placeholders (`your_jwt_secret`, contact information, etc.) with actual values or details relevant to your project.
+- Make sure to include any additional setup instructions or prerequisites if necessary.
+- Provide examples or sample requests/responses for API endpoints if feasible.
+
