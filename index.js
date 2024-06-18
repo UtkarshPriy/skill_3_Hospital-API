@@ -24,8 +24,8 @@ app.post('/doctors/register',userCntrl.registerDoctor);
 app.post('/doctors/login',authCntrl.signIn);
 app.post('/patients/register',userCntrl.registerPatient);
 app.post('/patients/:id/create_report',reportCntrl.createReport);
-app.post('/patients/:id/all_reports',reportCntrl.allReports);
-app.post('/reports/:status',reportCntrl.reportStatus);
+app.get('/patients/:id/all_reports',reportCntrl.allReports);
+app.get('/reports/:status',reportCntrl.reportStatus);
 
 
 

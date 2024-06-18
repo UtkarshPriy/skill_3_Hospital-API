@@ -7,7 +7,7 @@ const reportSchema = new Schema({
     patientname: String,
     status: String || 'positive',
     phone: String,
-    dob: Date
+    dob: String
 
 });
 

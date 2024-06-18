@@ -10,14 +10,14 @@ export default class Report{
             patientname:patientname,
             status:status,
             phone:phone,
-            dob:dob || null,
-            doctorname
+            dob:dob ||null,
+           
         }
         await reports.create(newReport);
         return res.status(201).send('Report Added');
         }catch(error){
             console.log(error);
-            res.status(501).send('Internal Serer Error')
+            res.status(501).send('Internal Server Error')
         }
         
 
@@ -26,16 +26,16 @@ export default class Report{
     allReports = async(req,res)=>{
 
         try{
-            const{patientname} = req.body;
-            const result = reports.find({patientname:patientname},{sort:{
-                _id: 1 //Sort by Date Added Ascending
-        }})
+            const{contact} = req.body;
+            const result = await reports.find({phone:contact}).sort({
+                _id: 1 
+                });
         return res.status(200).json({result})
 
 
         }catch(error){
             console.log(error);
-            res.status(501).send('Internal Serer Error')
+            res.status(501).send('Internal Server Error')
         }
     }
     // Return Reports on the basis of Status 
@@ -45,7 +45,7 @@ export default class Report{
             let result = await reports.find({status:status});
             return res.status(200).json({result});
         }catch(error){
-            res.status(501).send('Internal Serer Error')
+            res.status(501).send('Internal Server Error')
         }
     }
 }

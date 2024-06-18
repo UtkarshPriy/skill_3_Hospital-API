@@ -31,12 +31,12 @@ export default class User {
         try{
             console.log('req.body');
             const {username,contact,dob} = req.body;
-        let newPatient = {
-            name: username,
-            role: 'Patient',
-            phone: contact || null,
-            dob:dob || null
-        };
+            let newPatient = {
+                name: username,
+                role: 'Patient',
+                phone: contact || null,
+                dob:dob || null
+            };
         let userExists = await userList.findOne({phone:contact });
         console.log(newPatient);
         if(userExists){
@@ -49,6 +49,5 @@ export default class User {
             console.log(error);
         }
     }
-
 
 }
