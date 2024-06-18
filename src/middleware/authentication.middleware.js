@@ -7,6 +7,7 @@ const privateKey = process.env.Private_Key || 'abcd';
 
 export default class Authentication {
 
+    // Check Credentials and return JWT token
    
         signIn = async(req,res) =>{
             try{
@@ -32,6 +33,8 @@ export default class Authentication {
         }catch(error){
         console.log(error);
     }}
+    // Verify JWT Token 
+
     isAuth = async (req,res,next)=>{
         try{
             const token =req.cookies['jwt'];
@@ -50,6 +53,7 @@ export default class Authentication {
             return res.status(501).send('Server Internal Error');
         }
     }
+    // Detroy JWT Token once user logged out
     signOut = (req,res)=>{
         res.cookie('jwt', '', {
             httpOnly: true,

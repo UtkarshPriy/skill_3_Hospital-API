@@ -1,4 +1,4 @@
-
+// Import necessary modules
 import express from 'express';
 import { urlencoded } from 'express';
 import jsonwebtoke from 'jsonwebtoken';
@@ -14,10 +14,12 @@ app.use(urlencoded({
     extended: true
 }));
 
+// Initialize controllers
 const userCntrl = new User();
 const authCntrl = new Authentication();
 const reportCntrl = new Report();
 
+// Define routes for the application
 app.post('doctors/register',userCntrl.registerDoctor);
 app.post('/doctors/login',authCntrl.signIn);
 app.post('/patients/register',userCntrl.registerPatient);
@@ -28,5 +30,5 @@ app.post('/reports/:status',reportCntrl.reportStatus);
 
 
 
-
+// Export the Express app instance
 export default app;

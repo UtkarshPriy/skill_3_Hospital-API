@@ -1,6 +1,7 @@
 import reports from '../model/report.model.js';
 
 export default class Report{
+    // Save Report 
     createReport = async(req,res)=>{
         try{
             const{doctorname,patientname,status,phone,dob} = req.body;
@@ -21,6 +22,7 @@ export default class Report{
         
 
     }
+    // Return all the reports for given patient
     allReports = async(req,res)=>{
 
         try{
@@ -36,6 +38,7 @@ export default class Report{
             res.status(501).send('Internal Serer Error')
         }
     }
+    // Return Reports on the basis of Status 
     reportStatus = async (req,res)=>{
         try{
             const{status} = req.body;

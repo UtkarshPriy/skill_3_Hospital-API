@@ -3,7 +3,7 @@ import userList from '../model/user.model.js';
 
 
 export default class User {
-
+    // Regiter the Doctor
     registerDoctor = async(req,res)=>{
         try{
             const {username,password,contact,dob} = req.body;
@@ -24,6 +24,7 @@ export default class User {
             console.log(error);
         }
     }
+    // Regiter the Patient
     registerPatient = async(req,res)=>{
         try{
             const {username,password,contact,dob} = req.body;
