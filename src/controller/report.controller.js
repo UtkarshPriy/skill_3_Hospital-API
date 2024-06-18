@@ -10,7 +10,7 @@ export default class Report{
             patientname:patientname,
             status:status,
             phone:phone,
-            dob:dob,
+            dob:dob || null,
             doctorname
         }
         await reports.create(newReport);

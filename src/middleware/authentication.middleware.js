@@ -11,8 +11,10 @@ export default class Authentication {
    
         signIn = async(req,res) =>{
             try{
+            
             const {username,password} = req.body;
             const userExits = await userList.findOne({name:username,passcode:password});
+            console.log(userExits);
             if(userExits){
                 const token =  jwt.sign({
                     name : username,
@@ -22,10 +24,13 @@ export default class Authentication {
                 {
                     expiresIn: '1h'
                 }
-            )
-                return res.status(202).cookie('jwt',token,{
-                    httpOnly:true
-                });
+            )   
+            return res.status(202).json({ token });
+
+            //Below was not working for postman
+                // return res.cookie('jwt',token,{
+                //     httpOnly:true
+                // }).status(201);
             }else{
                 return res.status(401).send("Incorrect Creds");
             }

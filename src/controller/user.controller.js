@@ -6,12 +6,14 @@ export default class User {
     // Regiter the Doctor
     registerDoctor = async(req,res)=>{
         try{
+            
             const {username,password,contact,dob} = req.body;
         let newDoctor = {
             name: username,
             role: 'Doctor',
             phone: contact || null,
-            dob: dob || null
+            dob: dob || null,
+            passcode:password
         };
         let userExists = await userList.findOne({name:username,phone:contact });
         if(userExists){
@@ -27,14 +29,16 @@ export default class User {
     // Regiter the Doctor
     registerPatient = async(req,res)=>{
         try{
-            const {username,password,contact,dob} = req.body;
+            console.log('req.body');
+            const {username,contact,dob} = req.body;
         let newPatient = {
             name: username,
             role: 'Patient',
             phone: contact || null,
-            dob: dob || null
+            dob:dob || null
         };
         let userExists = await userList.findOne({phone:contact });
+        console.log(newPatient);
         if(userExists){
             return res.status(406).json({userExists});
         }else{

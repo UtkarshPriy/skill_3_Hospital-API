@@ -1,18 +1,18 @@
 // Import necessary modules
 import express from 'express';
 import { urlencoded } from 'express';
-import jsonwebtoke from 'jsonwebtoken';
+// import jsonwebtoken from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 import db from './src/config/mongoose.config.js';
 import User from './src/controller/user.controller.js';
-import bodyparser from 'express';
 import Authentication from './src/middleware/authentication.middleware.js';
 import Report from './src/controller/report.controller.js';
 
 const app = express();
-app.use(urlencoded({
-    extended: true
-}));    
+app.use(urlencoded({extended: true}));
+app.use(express.json());
+
+
 
 // Initialize controllers
 const userCntrl = new User();
