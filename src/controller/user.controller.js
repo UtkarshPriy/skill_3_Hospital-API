@@ -38,7 +38,6 @@ export default class User {
                 dob:dob || null
             };
         let userExists = await userList.findOne({phone:contact });
-        console.log(userExists);
         if(userExists){
             return res.status(406).json({userExists});
         }else{
