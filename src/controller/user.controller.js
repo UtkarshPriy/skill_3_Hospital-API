@@ -24,10 +24,26 @@ export default class User {
             console.log(error);
         }
     }
-
-
-    signIn = async(req,res) =>{
-
-
+    registerPatient = async(req,res)=>{
+        try{
+            const {username,password,contact,dob} = req.body;
+        let newPatient = {
+            name: username,
+            role: 'Patient',
+            phone: contact || null,
+            dob: dob || null
+        };
+        let userExists = await userList.findOne({phone:contact });
+        if(userExists){
+            return res.status(406).json({userExists});
+        }else{
+            await userList.createOne(newPatient);
+            return res.status(201).send("Patient Registered successully");
+        }
+            }catch(error){
+            console.log(error);
+        }
     }
+
+
 }
